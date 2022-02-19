@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* MOBILE */
+html {
+  font-size: 15px;
+}
+
+/* TABLET */
+@media (min-width: 400px) {
+  html { 
+    font-size: 18px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  html {
+    font-size: 21px;
+  }
+}
+
+/* EXTRA LARGE */
+@media only screen and (min-width:1024px){
+  html {
+      font-size: 26px;
+  }
+}
