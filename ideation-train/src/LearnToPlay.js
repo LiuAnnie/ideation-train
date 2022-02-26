@@ -1,8 +1,6 @@
 import React from 'react';
 import "./LearnToPlay.css";
-import { useState } from "react";
 import { Layout, Button, Typography, Divider } from 'antd';
-// import Title from 'antd/lib/skeleton/Title';
 const { Title, Paragraph, Text, Link } = Typography;
 
 function LearnToPlay(props) {
