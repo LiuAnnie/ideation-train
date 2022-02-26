@@ -9,25 +9,11 @@ const { Header, Content, Footer } = Layout;
 
 function App() {
 
-  const [learnview, setLearnview] = useState(false);
-
-  function updateLearnView(learnview) {
-
-  }
-
-
   return (
       <div className="App">
     <Layout className="layout">
-      <Header className="header">
-        {/* figuring this out */}
-        {/* <Typography>
-          <Title level={5}>WELCOME TO THE</Title>
-          <Title>ideation train</Title>
-        </Typography> */}
-      </Header>
       <Content className="content">
-        <Title level={5}>WELCOME TO THE</Title>
+        {/* <Title level={5}>DAILY IDEATION CHALLENGE</Title> */}
         <Title>ideation train</Title>
         <Button type="primary">REVEAL DAILY PROMPT</Button>
       </Content>

@@ -2,18 +2,17 @@ import React from 'react';
 import "./LearnToPlay.css";
 import { useState } from "react";
 import { Layout, Button, Typography, Divider } from 'antd';
+// import Title from 'antd/lib/skeleton/Title';
+const { Title, Paragraph, Text, Link } = Typography;
 
 function LearnToPlay(props) {
     return <div className="footer">
+        <Title level={5}>HOW TO PLAY</Title>
         <Typography>
-            The Ideation Train is a daily ideation challenge. Answer the given prompt
-            with an idea expressed through a sketch or text. Submit your idea and give
-            feedback or ideate on top of someone else's idea! See feedback that others
-            gave you in your inbox at the end of the day.
+            Answer the given prompt with an idea expressed through a sketch or text. 
+            Submit your idea and give feedback or ideate on top of someone else's idea! 
+            See feedback that others gave you in your inbox at the end of the day.
         </Typography>
-        {/* <Button type="primary" onClick={set}>
-                SHOW LESS
-            </Button> */}
     </div>
 
     // Was going to have a button to reveal instructions, but since the instructions for how to play
