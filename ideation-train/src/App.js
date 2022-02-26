@@ -1,12 +1,23 @@
 import React from 'react';
+import { useState } from "react";
 import './App.css';
+import LearnToPlay from "./LearnToPlay";
 import { Layout, Button, Typography, Divider } from 'antd';
 
 const { Title, Paragraph, Text, Link } = Typography;
 const { Header, Content, Footer } = Layout;
 
-const App = () => (
-  <div className="App">
+function App() {
+
+  const [learnview, setLearnview] = useState(false);
+
+  function updateLearnView(learnview) {
+
+  }
+
+
+  return (
+      <div className="App">
     <Layout className="layout">
       <Header className="header">
         {/* figuring this out */}
@@ -20,11 +31,10 @@ const App = () => (
         <Title>ideation train</Title>
         <Button type="primary">REVEAL DAILY PROMPT</Button>
       </Content>
-      <Footer className="footer">
-        <Button type="primary">LEARN HOW TO PLAY</Button>
-      </Footer>
+      <LearnToPlay></LearnToPlay>
     </Layout>
   </div>
-);
+  );
+}
 
 export default App;
