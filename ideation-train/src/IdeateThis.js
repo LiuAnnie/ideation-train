@@ -24,7 +24,7 @@ function IdeateThis(props) {
 
     // return prompt
     function givePrompt() {
-        return prompts[1];
+        return prompts[0];
     }
 
     function handleClick() {
@@ -33,12 +33,12 @@ function IdeateThis(props) {
 
     if (setReveal) {
         return <Content className="content">
-            <Title level={2}>
+            <Title level={1}>
                 IDEATE...
             </Title>
-            <Typography>
+            <Title level={3}>
                 {givePrompt()}
-            </Typography>
+            </Title>
             <IdeateMode></IdeateMode>
         </Content>
     } else {

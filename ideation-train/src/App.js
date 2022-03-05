@@ -35,11 +35,8 @@ function App() {
       <div className="App">
     <Layout className="layout">
       <Content className="content">
-        {/* <Title level={5}>DAILY IDEATION CHALLENGE</Title> */}
         <Title>ideation train</Title>
         <IdeateThis updatePrompt={updatePrompt} />
-        {/* <IdeateMode></IdeateMode> */}
-        {/* <Button type="primary">REVEAL DAILY PROMPT</Button> */}
       </Content>
       <LearnToPlay></LearnToPlay>
     </Layout>
