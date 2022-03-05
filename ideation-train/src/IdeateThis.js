@@ -8,13 +8,22 @@ const { Header, Content, Footer } = Layout;
 
 function IdeateThis(props) {
     const [reveal, setReveal] = useState(false);
-    // const [prompt, setPrompt] = useState("");
+    const [prompt, setPrompt] = useState("");
+    // test prompts
+    const prompts = ["a wearable that promotes personal safety in urban spaces.",
+                        "a tool or device that keeps drinks safe from spiking / drugging.",
+                        "a wearable that allows the wearer to subtly alert emergency contacts for help."]
 
     // // show prompt
     // function show() {
-    //     props.updatePrompt(prompt);
+    //     props.updatePrompt(givePrompt());
     //     setReveal(false);
     // }
+
+    // return prompt
+    function givePrompt() {
+        return prompts[1];
+    }
 
     if (setReveal) {
         return <Content className="content">
@@ -22,7 +31,7 @@ function IdeateThis(props) {
                 IDEATE...
             </Title>
             <Typography>
-                a wearable that promotes personal safety in urban spaces.
+                {givePrompt()}
             </Typography>
             <Title level={5}>
                 How do you want to respond?
