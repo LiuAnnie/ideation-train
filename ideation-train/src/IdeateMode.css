@@ -1,0 +1,22 @@
+@import 'antd/dist/antd.css';
+
+.mode-selection {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-area {
+    height: 10rem;
+    width: 20rem;
+    border: 3px solid white;
+    border-radius: 2rem;
+    /* added margin */
+    margin: 1.5rem;
+    padding: 1rem;
+    /* transparent black background */
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    /* font-weight: bold; */
+  }

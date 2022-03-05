@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./IdeateThis.css";
+import IdeateMode from "./IdeateMode";
 import { Layout, Button, Typography, Divider } from 'antd';
 
 const { Title, Paragraph, Text, Link } = Typography;
@@ -9,6 +10,7 @@ const { Header, Content, Footer } = Layout;
 function IdeateThis(props) {
     const [reveal, setReveal] = useState(false);
     const [prompt, setPrompt] = useState("");
+    
     // test prompts
     const prompts = ["a wearable that promotes personal safety in urban spaces.",
                         "a tool or device that keeps drinks safe from spiking / drugging.",
@@ -25,6 +27,10 @@ function IdeateThis(props) {
         return prompts[1];
     }
 
+    function handleClick() {
+        console.log('hello annie');
+    }
+
     if (setReveal) {
         return <Content className="content">
             <Title level={2}>
@@ -33,17 +39,7 @@ function IdeateThis(props) {
             <Typography>
                 {givePrompt()}
             </Typography>
-            <Title level={5}>
-                How do you want to respond?
-            </Title>
-            <div className="mode-selection">
-                <Button type="primary">
-                    Drawing
-                </Button>
-                <Button type="primary">
-                    Text
-                </Button>
-            </div>
+            <IdeateMode></IdeateMode>
         </Content>
     } else {
         return <Content className="content">
