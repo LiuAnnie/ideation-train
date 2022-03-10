@@ -3,9 +3,10 @@ import { ReactDOM } from "react-dom";
 import CanvasDraw from "react-canvas-draw";
 import { useRef, useState } from "react";
 import "./IdeateMode.css";
+
 // import { AiOutlineEdit } from 'react-icons/ai';IDe
 // import { GrTextAlignFull } from 'react-icons/gr';
-import { Layout, Button, Typography, Divider, Input, Checkbox } from 'antd';
+import { Layout, Button, Typography, Divider, Input, Checkbox, Image } from 'antd';
 
 const { Title, Paragraph, Text, Link } = Typography;
 const { Header, Content, Footer } = Layout;
@@ -59,11 +60,11 @@ function IdeateMode(props) {
                     <TextArea rows={3} placeholder="(Optional) Short description of idea... 350 CHARACTER LIMIT " maxLength={350} />
                     <Checkbox onChange={onChange}>Speculative</Checkbox>
                 </div>
-                <Button type="primary">Submit</Button>
+                <Button type="primary" onClick={() => changeMode("submitted")}> Submit</Button>
             </div>
             {/* <br></br> */}
             {/* <Button type="primary">Submit</Button> */}
-        </div>
+        </div >
     } else if (mode == "text") {
         return <div className="content">
             <textarea
@@ -71,9 +72,24 @@ function IdeateMode(props) {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
-            <Button type="primary">Submit</Button>
+            <div className="text-buttons">
+                <Checkbox onChange={onChange}>Speculative</Checkbox>
+                <Button type="primary" onClick={() => changeMode("submitted")}> Submit</Button>
+            </div>
+        </div >
+    } else if (mode == "submitted") {
+        return <div className="content">
+            <br></br>
+            <Title level={3} italic>Idea Submission Received</Title>
+            <div className="button-row">
+                <Button type="primary" onClick={() => changeMode("feedback")}>Give Feedback</Button>
+                <Button type="primary" ghost onClick={() => changeMode("")}> Submit Another Idea</Button>
+            </div>
         </div>
-
+    } else if (mode == "feedback") {
+        return <div className="other-user">
+            <Image src="test_sketch.png"></Image>
+        </div>
     } else { // mode hasn't been chosen yet
         return <div>
             <Title level={4}>
