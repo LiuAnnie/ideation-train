@@ -33,14 +33,15 @@ function IdeateThis(props) {
 
     if (setReveal) {
         return <Content className="content">
+
             <Title level={2}>
                 ideate... {givePrompt()}
             </Title>
             {/* <Title level={3}>
                 {givePrompt()}
             </Title> */}
-            <br></br>
-            <br></br>
+            {/* <br></br>
+            <br></br> */}
             <IdeateMode></IdeateMode>
         </Content>
     } else {

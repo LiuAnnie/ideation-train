@@ -1,11 +1,11 @@
 import React from "react";
 import { ReactDOM } from "react-dom";
 import CanvasDraw from "react-canvas-draw";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./IdeateMode.css";
 // import { AiOutlineEdit } from 'react-icons/ai';IDe
 // import { GrTextAlignFull } from 'react-icons/gr';
-import { Layout, Button, Typography, Divider, Input } from 'antd';
+import { Layout, Button, Typography, Divider, Input, Checkbox } from 'antd';
 
 const { Title, Paragraph, Text, Link } = Typography;
 const { Header, Content, Footer } = Layout;
@@ -16,7 +16,10 @@ function IdeateMode(props) {
     const [drawing, setDrawing] = useState(""); // store image url here
     const [text, setText] = useState(""); // store text response here
 
-    const [brush, setThickness] = useState(10); // store brush thickness
+    // const [brush, setThickness] = useState(10); // store brush thickness
+    const drawCanvas = useRef({});
+    const clear = () => drawCanvas.current.clear();
+    const undo = () => drawCanvas.current.undo();
 
     function changeMode(newMode) {
         setMode(newMode);
@@ -30,22 +33,36 @@ function IdeateMode(props) {
     //     }
     // }
 
+    function onChange(e) {
+        console.log(`checked = ${e.target.checked}`);
+    }
+
     if (mode == "drawing") {
         return <div className="content">
             <CanvasDraw
                 //  ref={(canvasDraw) => (this.modify = canvasDraw)}
-                brushRadius={brush}
-                //  canvasHeight="50vh"
-                //  canvasWidth="50vw"
+                ref={drawCanvas}
+                brushRadius={3}
+                canvasHeight={500}
+                canvasWidth={1000}
                 //  hideGrid={true}
                 style={{ boxShadow: "0 13px 27px -5px rgba(50, 50, 93, 0.25),    0 8px 16px -8px rgba(0, 0, 0, 0.3)" }}
             />
             <br></br>
-            <div className="input">
-                <TextArea rows={2} placeholder="(Optional) Short description of idea... 350 CHARACTER LIMIT " maxLength={350} />
+            <div className="canvas-buttons">
+                <Button onClick={undo}>Undo</Button>
+                <Button onClick={clear}>Clear</Button>
             </div>
             <br></br>
-            <Button type="primary">Submit</Button>
+            <div className="input-submit">
+                <div className="input">
+                    <TextArea rows={3} placeholder="(Optional) Short description of idea... 350 CHARACTER LIMIT " maxLength={350} />
+                    <Checkbox onChange={onChange}>Speculative</Checkbox>
+                </div>
+                <Button type="primary">Submit</Button>
+            </div>
+            {/* <br></br> */}
+            {/* <Button type="primary">Submit</Button> */}
         </div>
     } else if (mode == "text") {
         return <div className="content">
@@ -62,6 +79,7 @@ function IdeateMode(props) {
             <Title level={4}>
                 How do you want to respond?
             </Title>
+            <br></br>
             <div className="mode-selection">
                 <Button type="primary" onClick={() => changeMode("drawing")}>
                     Drawing
