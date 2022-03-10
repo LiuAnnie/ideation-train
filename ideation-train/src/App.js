@@ -4,16 +4,17 @@ import './App.css';
 import LearnToPlay from "./LearnToPlay";
 import IdeateThis from "./IdeateThis";
 import IdeateMode from "./IdeateMode";
-import { Layout, Button, Typography, Divider } from 'antd';
+import { Layout, Button, Typography, Divider, Tooltip } from 'antd';
+import { InboxOutlined } from '@ant-design/icons';
 
 const { Title, Paragraph, Text, Link } = Typography;
 const { Header, Content, Footer } = Layout;
 
 function App() {
-    // "newPrompt" is a function to update "currPrompt"
-    const [currPrompt, newPrompt] = useState("");
-    // "newMode" is a function to update "currMode"
-    const [currMode, newMode] = useState("none");
+  // "newPrompt" is a function to update "currPrompt"
+  const [currPrompt, newPrompt] = useState("");
+  // "newMode" is a function to update "currMode"
+  const [currMode, newMode] = useState("none");
 
   function updatePrompt(prompt) {
     // if no prompt was provided, don't update prompt
@@ -32,15 +33,18 @@ function App() {
   }
 
   return (
-      <div className="App">
-    <Layout className="layout">
-      <Content className="content">
-        <Title>ideation train</Title>
-        <IdeateThis updatePrompt={updatePrompt} />
-      </Content>
-      <LearnToPlay></LearnToPlay>
-    </Layout>
-  </div>
+    <div className="App">
+      <Layout className="layout">
+        <div className='header'>
+          <Title>ideation train</Title>
+          <Button type="primary" icon={<InboxOutlined />} size={'large'} />
+        </div>
+        <Content className="content">
+          <IdeateThis updatePrompt={updatePrompt} />
+        </Content>
+        <LearnToPlay></LearnToPlay>
+      </Layout>
+    </div>
   );
 }
 

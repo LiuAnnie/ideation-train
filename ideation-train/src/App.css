@@ -12,9 +12,10 @@
   height: 4rem;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0rem;
+  padding: 2rem 2rem;
 }
 
 .content {
@@ -22,6 +23,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .footer {

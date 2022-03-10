@@ -7,6 +7,20 @@
     align-items: center;
 }
 
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .text-area {
     height: 10rem;
     width: 25rem;

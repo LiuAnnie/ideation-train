@@ -3,17 +3,20 @@ import { ReactDOM } from "react-dom";
 import CanvasDraw from "react-canvas-draw";
 import { useState } from "react";
 import "./IdeateMode.css";
-// import { AiOutlineEdit } from 'react-icons/ai';
+// import { AiOutlineEdit } from 'react-icons/ai';IDe
 // import { GrTextAlignFull } from 'react-icons/gr';
-import { Layout, Button, Typography, Divider } from 'antd';
+import { Layout, Button, Typography, Divider, Input } from 'antd';
 
 const { Title, Paragraph, Text, Link } = Typography;
 const { Header, Content, Footer } = Layout;
+const { TextArea } = Input;
 
 function IdeateMode(props) {
     const [mode, setMode] = useState(""); // identify mode here
     const [drawing, setDrawing] = useState(""); // store image url here
     const [text, setText] = useState(""); // store text response here
+
+    const [brush, setThickness] = useState(10); // store brush thickness
 
     function changeMode(newMode) {
         setMode(newMode);
@@ -28,13 +31,32 @@ function IdeateMode(props) {
     // }
 
     if (mode == "drawing") {
-        return <CanvasDraw style={{ boxShadow: "0 13px 27px -5px rgba(50, 50, 93, 0.25),    0 8px 16px -8px rgba(0, 0, 0, 0.3)" }} />
+        return <div className="content">
+            <CanvasDraw
+                //  ref={(canvasDraw) => (this.modify = canvasDraw)}
+                brushRadius={brush}
+                //  canvasHeight="50vh"
+                //  canvasWidth="50vw"
+                //  hideGrid={true}
+                style={{ boxShadow: "0 13px 27px -5px rgba(50, 50, 93, 0.25),    0 8px 16px -8px rgba(0, 0, 0, 0.3)" }}
+            />
+            <br></br>
+            <div className="input">
+                <TextArea rows={2} placeholder="(Optional) Short description of idea... 350 CHARACTER LIMIT " maxLength={350} />
+            </div>
+            <br></br>
+            <Button type="primary">Submit</Button>
+        </div>
     } else if (mode == "text") {
-        return <textarea
-            className="text-area"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-        />
+        return <div className="content">
+            <textarea
+                className="text-area"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Button type="primary">Submit</Button>
+        </div>
+
     } else { // mode hasn't been chosen yet
         return <div>
             <Title level={4}>
