@@ -27,24 +27,12 @@ function IdeateThis(props) {
         return prompts[0];
     }
 
-    function handleClick() {
-        console.log('hello annie');
-    }
-
     if (setReveal) {
         return <Content className="content">
 
             <Title level={2}>
                 ideate...{givePrompt()}
             </Title>
-            {/* <Title level={2}>
-                {givePrompt()}
-            </Title> */}
-            {/* <Title level={3}>
-                {givePrompt()}
-            </Title> */}
-            {/* <br></br>
-            <br></br> */}
             <IdeateMode></IdeateMode>
         </Content>
     } else {
