@@ -57,7 +57,12 @@ function IdeateMode(props) {
             <br></br>
             <div className="input-submit">
                 <div className="input">
-                    <TextArea rows={3} placeholder="(Optional) Short description of idea... 350 CHARACTER LIMIT " maxLength={350} />
+                    <TextArea
+                        rows={3}
+                        placeholder="(Optional) Short description of idea... 350 CHARACTER LIMIT "
+                        maxLength={350}
+                        onChange={(e) => setText(e.target.value)}
+                    />
                     <Checkbox onChange={onChange}>Speculative</Checkbox>
                 </div>
                 <Button type="primary" onClick={() => changeMode("submitted")}> Submit</Button>
@@ -67,12 +72,14 @@ function IdeateMode(props) {
         </div >
     } else if (mode == "text") {
         return <div className="content">
-            <textarea
-                className="text-area"
-                value={text}
+            <TextArea
+                rows={5}
+                placeholder="Description of idea... 700 CHARACTER LIMIT "
+                maxLength={700}
                 onChange={(e) => setText(e.target.value)}
             />
-            <div className="text-buttons">
+            <br></br>
+            < div className="text-buttons">
                 <Checkbox onChange={onChange}>Speculative</Checkbox>
                 <Button type="primary" onClick={() => changeMode("submitted")}> Submit</Button>
             </div>

@@ -35,8 +35,11 @@ function IdeateThis(props) {
         return <Content className="content">
 
             <Title level={2}>
-                ideate... {givePrompt()}
+                ideate...{givePrompt()}
             </Title>
+            {/* <Title level={2}>
+                {givePrompt()}
+            </Title> */}
             {/* <Title level={3}>
                 {givePrompt()}
             </Title> */}
